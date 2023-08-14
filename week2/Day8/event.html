@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+   <!--
+
+    이벤트 : 웹 브라우저에서 일어나는 사건( 클릭, 브라우저 크기 변경, 키보드 클릭)
+    이벤트 이름: 자바스크립트에서 장의된 이벤트 이름(load, click..)
+    이벤트 속성: 특정요소(태그)에 이벤트를 적용할 때 사용되는 속성
+    이벤트 리스너: 발생한 이벤트에 대처하기 위해 작성된 코드
+    이벤트 객체: 해당 이벤트 시점에 생성된 객체 (x,y좌표,  target...)
+    이벤트 디폴트 행동: 요소(태그)가 가지고 있는 기본적인 작업행동
+                      (a태그 클릭시 디폴트 행동은 href경로 이동)
+   
+   
+   
+   ex>
+window.onload = function(e){ // 브라우저가 오픈되었을 시 이벤트 객체가 무조건 젤 앞에 와야함
+    이벤트 속성에 함수할당시 첫번째 매개변수는 해당 시점의 이벤트객체임.
+    작업코드~~
+    }             
+
+    window객체의 onload속성에 함수를 할당(이벤트를 연결한다 라고도 표현)
+    onload(로드를 완료한 시점) 이벤트시 작업됨.
+
+    // 자바스크립트는 웹브라우저를 컨트롤 하는 것이기 때문에
+    해당 부분들을 다룰 수 있어야 함.
+
+--> 
+
+    <script>
+        function fn_get(){
+        let input = document.getElementById("input_id");
+        let div = document.getElementById("div_id")
+        console.log(input.value); // valule는 input에 들어간 값임
+        div.innerHTML += input.value + "<br>";
+        }
+        function fn_down(e, obj){ 
+            console.log(e.target.value=""); // 타겟도 오브제랑 같은 맥락임... (????? 그렇다고함..)
+            console.log(obj.value); // 이벤트가 일어나는 주체 = 이벤트 타겟 있음.
+             // 여기선 이벤트 타겟이 this 같음.. (??)
+             // 지금의 e.target은 input 2번째 매개변수로 받은 obj랑 동일함.
+        }
+
+    </script>
+<body>
+    <from action = '#'>
+        <table border = "1">
+            <tr>
+                <td>id</td>
+                <td><input type="text" id="input_id" onkeydown="fn_down(event,this)"></td>
+                <!-- <td><input type="submit" value="전송"></td>
+                 input type submit은 디폴트 행동이 전송임 주의-->
+            
+                <td><input type="button" value="전송" onclick="fn_get()"></td>
+            </tr>
+        </table>
+    </from>
+  <div id = "div_id"></div>
+
+
+
+</body>
+</html>

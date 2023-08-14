@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 만들기</title>
+</head>
+<body>
+    <script>
+        //입력받은 수의 사이즈로 테이블을 만들어주세요
+        let row = prompt("몇 행으로 테이블을 만들어 드릴까요?")
+        let col = prompt("몇 열으로 테이블을 만들어 드릴까요?")
+        document.write("<table border '1'>");
+            row = parseInt(row);
+            col = parseInt(col);
+
+
+        for(let i = 1; i <= col; i++) {
+            document.write("<tr>")
+            for(let j =1; j<=row; j++){
+                document.write("<td>");
+                document.write(i + "x" +j)
+                document.write("</td>");
+            }
+            document.write("</tr>")
+           }  
+            document.write("</table>")
+
+
+    </script>
+    </table>
+
+
+ 
+    
+</body>
+</html>

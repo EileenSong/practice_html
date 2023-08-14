@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[]로 배열만들기]</title>
+</head>
+<body>
+    <h1>[]로 배열만들기</h1>
+    <hr>
+
+    <script>
+        let point = [[4,1],[3,3],[2,5],[1,7],[0,9]];
+        //서브배열의 [0]은 공백, [1]은 별의 수
+        //&nbsp = 공백
+
+        for(let i = 0; i < point.length; i++){
+            console.log(point[i]);
+            let blank = point[i][0];// 공백
+            let star = point[i][1];// 별 갯수
+            while(blank > 0){
+                document.write("&nbsp");
+                blank--;
+            }
+            while(star>0){
+                document.write("*");
+                star--;
+            }
+            document.write("<br>");
+        }
+
+            
+
+
+
+
+
+    </script>
+
+
+</body>
+</html>

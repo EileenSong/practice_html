@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input checkBox</title>
+    <script>
+
+
+    </script>
+</head>
+<body>
+    
+
+<div>
+    <h3>취미를 선택하세요</h3>
+    <span id="span_id">
+        <label for="">전체</label><input type ="checkbox" onchange="fn_all(this)">
+    </span>
+</div>
+<div>
+<!--c체크박ㄹ스는 다중선택 가능-->
+    <label for="">독서</label><input type="checkbox" name="hobby" value="read">
+    <label for="">운동</label><input type="checkbox" name="hobby" value="sports">
+    <label for="">게임</label><input type="checkbox" name="hobby" valuse="game">
+    <label for="">운동</label><input type="checkbox" name="hobby" value="sports">
+<!--체크박스는 째만해서 라벨에 id를 넣어두면 글만 클릭해도 체크됨 -->
+    <label for="cook">요리</label><input type="checkbox" id="cook" name="hobby" valuse="cook">
+    <input type="button" value="확인" onclick="fn_check()">
+</div>
+
+<script>
+    function fn_check(){
+        let objs = document.getElementsByName('hobby');
+        let msg = "당신의 취미는?";
+        for(let i = 0; i < objs.length; i++){
+            if(objs[i].checked){
+                msg += objs[i].value + ":" + objs[i].previousSibling.innerHTML + " ";
+
+            }
+        }
+        alert(msg+"입니다");
+    }
+
+    function fn_all(obj){
+        let flag = obj.checked;
+        let arr = document.getElementsByName('hobby');
+        //obj의 checked 값이 tru 이면 hobby 의 checked를  true 로...
+        // false이면 전체 hobby의 checked 를 false로 
+        //1. obj 의 상태값 가져오기
+        //2. hobby 전ㅊㅔ 엘리먼트 가져오기
+        for(let i= 0; i < arr.length; i++){
+            arr[i].checked = flag;
+        }
+
+    
+    }
+</script>
+
+
+</body>
+</html>

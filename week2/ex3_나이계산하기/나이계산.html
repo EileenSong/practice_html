@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이 계산하기</title>
+    <link rel="stylesheet" href="age.css">
+</head>
+<body>
+    <button class="btn" onclick="calc()">나이 계산하기</button>
+    
+    
+	<div id="result" class="show">당신의 나이는...?</div>
+    <script>
+        function calc(){      
+            let birthday = new Date(1992, 7, 29) // 생일
+            let today = new Date(); //현재날짜
+            let diffDate = today.getTime() - birthday.getTime();
+            let age = Math.floor(diffDate / (1000 * 60 * 60 * 24* 365.25)); //밀리세컨 계산한거임 초단위 *분단위 *시간 *하루계산
+            document.getElementById("result").innerHTML = "당신의 나이는 " + age + "세 입니다." ;
+
+        }
+    </script>
+</body>
+</html>

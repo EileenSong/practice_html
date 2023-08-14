@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array 배열 만들기</title>
+
+
+
+</head>
+<body>
+    <h3> []로 배열만들기</h3>
+    <hr>
+    <script>
+        let plots = [20, 5, 8, 15, 20]; //배열이구나. 자료형은 상관없음.
+        console.log(typeof(plots));
+        console.log(plots.length);
+        for(let i = 0; i< plots.length; i++){ //개의 요소가 있음.
+            let size = plots[i];
+            while(size> 0){
+                document.write("*");
+                size--;
+            }
+            document.write(plots[i] + "<br>");
+
+
+        }
+       // for문 쓰는법 2 . for in 문 요소의 성분 수 만큼 반복
+       // 순서 성분이 필요할 때. 0부터 i 까지
+       // 갯수에 접근
+       for(let i in plots){
+        console.log(i + "번째:", plots[i]);
+       } 
+
+       //for문 요소의 값만 필요할 땨
+       // 인덱스 필요없이 단순 value값만 필요하다
+       for(let v of plots){
+        console.log(v);
+       }
+
+       //다차원 배열
+       let arr = [[101, 102, 103],
+                  [104, 105, 106],
+                  [107, 108, 109]];
+
+        console.log("arr:", arr);
+        console.log("arr[0]", arr[0]);
+        console.log("arr[1][0][1]", arr[1]); // [1]에서 [0번째]에서 [1]번 index인것
+
+
+        //한개씩 출력해보기
+        for(let i = 0; i< arr.length; i++){
+            for(let j=0; j<arr[i].length; j++){
+                console.log(i + "," + j + ":", arr[i][j]);
+
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src = "http://maps.googleapis.com/maps/api/js"></script>
+    <script>
+    function initialize(){
+    
+        // 서울 위도, 경도 정보
+    var seoul = {lat: 37.5666, lng: 126.9774};
+       // 구글 지도 객체를 생성하고, 위치는 서울으로 맞춘다.
+    var map = new google.maps.Map(
+         document.getElementById('googleMap'), {zoom: 1.2, center: seoul});
+        // 서울에 마커를 위치시키는 코드
+        var marker = new google.maps.Marker({position: seoul, map: map});
+    }
+    function draw(){
+        initialize();
+    }
+    </script>
+    </head>
+    <body>
+    <div id = "googleMap" style="width:500px;height:380px;"></div>
+    <input type = "button" value = "지도보기" onclick = "draw()">
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Declare Function</title>
+    <script>
+        //function + 함수명 으로 선언
+        // script위치 어디서든 사용가능한 것이 특징
+        function adder(a,b){
+            let sum;
+            sum = a+ b;
+            return sum;
+        }
+        // 함수호출
+        console.log(adder(2,8));
+        //익명함수 이름이 없음
+        //익명함수는 선언적 함수와 다르게 코드 이후 실행가능함.
+
+        let fn_noname = function(){
+            console.log("익명함수임");        
+        }
+
+
+        //변수에 담긴 익명함수는 변수명()으로 호출가능
+        fn_noname();
+        console.log(function(){
+            console.log("익명함2수임");
+        }());
+
+        function fn_callback(func){
+            //전달받은 func <- 함수를 전달받음
+            for(let i = 0; i<10; i++){
+                func();
+            }
+        }
+        
+        //함수를 받아오는 겨웅
+
+        fn_callback(fn_noname, );
+        fn_callback(function(){
+            console.log("익명함수3")
+        
+        });
+
+    </script>
+
+
+</head>
+<body>
+    <h3>함수 adder</h3>
+    <hr>
+    <script>
+        let n = adder(1,1);
+        document.write("1+1=" + n );
+    </script>
+    
+</body>
+</html>

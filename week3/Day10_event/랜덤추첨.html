@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤추첨</title>
+
+    <style>
+        div { display: flex; 
+              flex-direction: column;
+              justify-content: center; 
+              align-items: center;
+              height:100vh; 
+              text-align: center;}
+        strong{color: blue;}
+    </style>
+</head>
+<body>
+    <div>
+        <h1>classmate</h1>
+        <h2 id ="array-content" onmouseover="fn_stop()" onmouseout="fn_move()"></h2>
+        <button id="stop" onclick="fn_select()"> 랜덤선택</button>
+        <h2 id ="result"></h2>
+    </div>
+
+
+    <script>
+        let classmate = ["김규영", "김동현", "김상준", "김성운", "김세준", "노윤기",
+                         "박근혜", "사원기", "송현지", "신가희", "예준서", "윤가영"];
+        //let currentIndex = 0;
+        //function animateClassmate() {
+        //   currentIndex = (currentIndex + 1 ) ;
+        //   document.getElementById("array-content").innerHTML = '|' + classmate[currentIndex] +'|';
+        document.getElementById("array-content").innerHTML ='|' + classmate.join('|');
+        
+        let move = setInterval(fn_slice, 100);
+        function fn_slice(){
+            let obj = document.getElementById("array-content");
+            let text = obj.innerText;
+            first = text.substr(0,1);
+            last = text.substr(1);
+            obj.innerText = last + first;
+        }
+        function fn_stop(){
+            clearInterval(move);
+
+        }
+        function fn_move(){
+            move = setInterval(fn_slice, 100);
+        }
+
+        //화면을 클릭했을 때, 멈추고 이름이 선택됨
+        
+
+        // 1. 효과중지
+        //2. 랜덤뽑기
+
+        function fn_select(){
+            fn_stop(); //멈춤
+            let randomIndex = Math.floor(Math.random() * classmate.length);
+            let randomItem = classmate[randomIndex];
+            console.log(randomItem);
+            let obj = document.getElementById("array-content");
+            obj.onmouseover ="";
+            obj.onmouseout - "";
+
+
+            let text = obj.innerText;
+            console.log();
+
+            let text_idx = text.indexOf(randomItem)
+            let first = text.slice(0, text_idx);
+            let last = text.slice(text_idx + 3);
+
+
+            let inputText = "<strong>" + randomItem + "</strong>";
+            obj.innerHTML = first + inputText + last;
+            document.getElementById("result").innerHTML="당첨자는" + randomItem;
+        }
+
+
+
+    //}
+          // 옆으로 글자 이동하는것 - 0.1초마다 문자열 한 자리를 맨 뒤로 잘라 붙이기;;
+        //setInterval(animateClassmate, 100); //0.1초
+
+ </script>
+
+</body>
+</html>

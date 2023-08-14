@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버튼을 클릭하면 이미지가 바뀌는...</title>
+    <style>
+
+        #container{width : 60%; margin: 20px auto; text-align: center;}
+        img{width: 60%; height: 60%;}
+        p{background-color: black; color: lightpink;}
+        strong{color: lightcoral;}
+        button{position: relative; font-size: 50px; bottom: 200px;}
+    </style>
+    <script>
+
+        let files=["./img/common.jpg", "./img/tom.jpg"];
+        let imgs = [];
+        for(let i = 0; i< files.length; i++){
+            imgs[i] = new Image();
+            imgs[i].src = files[i];
+        }
+        let next = 1;
+        function fn_change(obj){
+            obj.src = imgs[next].src; //이미지 변경
+            next ++;
+            next %= imgs.length; //이미지 개수
+        }
+        let idx = 0
+
+
+        window.onload = function(){
+            obj = document.getElementById("img_id");
+        }
+
+        function fn_left(){
+            //작아지게.,. 0까지 작아졌다면 이미지의 마지막 인덱스로
+            if(idx ==0){
+            idx = imgs.length -1;
+            }else{
+            idx--;
+            }
+            obj.src = imgs[idx].src;
+        }
+        function fn_right(){
+            //커지게 이미지 최대까지 증가했다면 0으로
+            if(dix == Image.length -1){
+                idx = 0;
+            }else{
+            idx ++}    
+            obj.src = imgs[idx].src;
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="container">
+
+        <h1>영화소개</h1>
+        <p>가장 위험한 작전, 그의 마지막 선택 모든 인류를 위협할 새로운 무기를 추적하게 된 
+            <Strong>에단 헌트(톰 크루즈)</Strong>와 <strong>IMF팀은</strong> 이 무기가 인류의 미래를 통제할 수 있다는 사실을 알게 된다. 전 세계가 위태로운 상황에 처한 가운데, 이를 추적하던 에단 헌트에게 어둠의 세력까지 접근하고 마침내 미스터리하고 강력한 빌런과 마주하게 된 그는 가장 위험한 작전을 앞두고 자신이 아끼는 사람들의 생명과 중요한 임무 사이에서 선택을 해야 하는 상황에 놓이게 되는데…
+
+        </p>
+        <p></p>
+        <div>
+            <button id="left" onclick="fn_left()">&lt;</button>
+            <img src ="./img/apple.jpg" id="img_id" alt="" onclick="fn_change(this)">
+            <button id="right" onclick="fn_right()">&gt;</button>
+
+        </div>
+    </div>
+    
+</body>
+</html>

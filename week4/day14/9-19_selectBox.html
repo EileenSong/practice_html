@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select Box</title>
+</head>
+<body>
+    <form action="">
+        <select name="study" id="study" onchange="fn_get()">
+            <option value="JAVA">자바</option>
+            <option value="ORACEL">디비</option>
+            <option value="JAVASCRIPT">화면구현</option>
+            <option value="JSP">웹서비스</option>
+            <option value="" selected>선택하세요</option>
+        </select>
+        <input type="button" value="가져오기" onclick="fn_get()">
+        <input type="text" id="select_id" value ="선택값" readonly>
+    </form>
+    <script>
+        function fn_get(){
+            document.getElementById('select_id').value =
+                document.getElementById('study').value;
+            console.log(document.getElementById('study').selectedIndex);
+            //각 인덱스의 값이 출력됨. 자바0 디비1... 동적선택 가능
+        }
+    </script>
+</body>
+</html>

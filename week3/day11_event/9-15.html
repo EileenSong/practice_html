@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new Image() 로딩</title>
+    <script>
+        //미리 로딩해둘 이미지
+        let files = ["./img/apple.jpg","./img/banana.jpg","./img/cherry.jpg"];
+        let imgs = [];
+        for(let i = 0; i< files.length; i++){
+            imgs[i] = new Image();
+            imgs[i].src = files[i];
+        }
+        console.log(imgs)
+        let next = 1;
+        function fn_change(obj){
+            obj.src = imgs[next].src; //이미지 변경
+            next ++;
+            next %= imgs.length; //이미지 개수
+        }
+
+    </script>
+</head>
+<body>
+    <h3>new Image()로 이미지 로딩</h3>
+    <hr>
+    <img src = "./img/apple.jpg" style="border:20px ridge wheat"
+                width = "200px" height="300px" onclick="fn_change(this)" alt="">
+    
+</body>
+</html>
